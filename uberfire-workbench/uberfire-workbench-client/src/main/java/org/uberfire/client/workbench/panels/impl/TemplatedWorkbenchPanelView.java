@@ -103,7 +103,6 @@ public class TemplatedWorkbenchPanelView implements WorkbenchPanelView<Templated
         HTMLElement panelContainer = activity.resolvePosition(position);
 
         if (panelContainer.hasChildNodes()) {
-            GWT.log("----> " + panelContainer.getInnerHTML());
             throw new IllegalStateException("Child position " + position + " is already occupied");
         }
 

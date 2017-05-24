@@ -85,4 +85,10 @@ public class ContainerView
                     "container-empty");
         layout.appendChild(emptyDropRow.getElement());
     }
+
+    @Override
+    public void pageMode() {
+        addCSSClass(layout,
+                    "page-container");
+    }
 }

@@ -36,6 +36,7 @@ public class FullLayoutTest extends AbstractLayoutEditorTest {
     public void testFullLayout() throws Exception {
 
         container.loadEmptyLayout("A",
+                                  LayoutTemplate.Style.FLUID,
                                   "title",
                                   "subtitle");
         container.addProperty(TagsConverterUtil.LAYOUT_PROPERTY,

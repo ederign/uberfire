@@ -96,7 +96,8 @@ public abstract class AbstractLayoutEditorTest {
             @Override
             protected Row createInstanceRow() {
                 Row row = rowProducer();
-                row.setId(idGenerator.createRowID("container"));
+                row.setup(idGenerator.createRowID("container"),
+                          LayoutTemplate.Style.PAGE);
                 return row;
             }
 
@@ -113,7 +114,8 @@ public abstract class AbstractLayoutEditorTest {
                        dnDManager,
                        helper,
                        componentDropEventMock,
-                       componentRemoveEventMock) {
+                       componentRemoveEventMock,
+                       null) {
             private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
 
             @Override

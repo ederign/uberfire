@@ -39,6 +39,7 @@ public class ContainerTest extends AbstractLayoutEditorTest {
     @Test
     public void assertEmptyContainerHasEmptyDropRow() {
         container.loadEmptyLayout("layout",
+                                  LayoutTemplate.Style.FLUID,
                                   "",
                                   "");
         assertTrue(container.getRows().isEmpty());
@@ -49,6 +50,7 @@ public class ContainerTest extends AbstractLayoutEditorTest {
     @Test
     public void createFirstRow() {
         container.loadEmptyLayout("layout",
+                                  LayoutTemplate.Style.FLUID,
                                   "",
                                   "");
         assertEquals(0,

@@ -24,6 +24,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
+import com.google.gwt.core.client.GWT;
 import org.jboss.errai.ioc.client.api.ManagedInstance;
 import org.uberfire.client.mvp.UberElement;
 import org.uberfire.ext.layout.editor.api.editor.LayoutTemplate;
@@ -37,6 +38,7 @@ import org.uberfire.workbench.events.NotificationEvent;
 public class LayoutEditorPresenter {
 
     private final View view;
+    private LayoutTemplate.Style pageStyle = LayoutTemplate.Style.FLUID;
     protected Map<String, LayoutDragComponentGroupPresenter> layoutDragComponentGroups = new HashMap<>();
     ManagedInstance<LayoutDragComponentGroupPresenter> layoutDragComponentGroupInstance;
     @Inject
@@ -85,6 +87,7 @@ public class LayoutEditorPresenter {
                                 String emptyTitleText,
                                 String emptySubTitleText) {
         container.loadEmptyLayout(layoutName,
+                                  pageStyle,
                                   emptyTitleText,
                                   emptySubTitleText);
     }
@@ -137,6 +140,10 @@ public class LayoutEditorPresenter {
         if (layoutDragComponentGroupPresenter != null) {
             layoutDragComponentGroupPresenter.removeDraggableComponentFromGroup(componentId);
         }
+    }
+
+    public void setPageStyle(LayoutTemplate.Style pageStyle) {
+        this.pageStyle=pageStyle;
     }
 
     public interface View extends UberElement<LayoutEditorPresenter> {
